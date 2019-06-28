@@ -1,2 +1,17 @@
 <h1>Products#index</h1>
 <p>Find me in app/views/products/index.html.erb</p>
+
+<% @products.each_slice(3) do |product| %>
+<div class='row'>
+    <% @products.each do |product| %>
+        <div class='card'style="width: 18rem;"> 
+        <%= image_tag product.photo, class: 'card-img-top' %>
+            <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= product.name %></h6>
+            <td><%# link_to "Detalles", product_path(product) %></td>
+            </div>
+        </div>
+    <% end %>
+    </div>
+<% end %>
