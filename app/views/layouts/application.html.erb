@@ -12,13 +12,8 @@
   </head>
 
   <body>
-<<<<<<< HEAD
       
       <nav class="navbar sticky-top navbar-expand-lg navbar navbar-dark bg-primary">
-=======
-
-  <nav class="navbar sticky-top navbar-expand-lg navbar navbar-dark bg-primary">
->>>>>>> development
   
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,54 +23,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-<<<<<<< HEAD
         <a class="nav-link" href="#>"> Home <span class="sr-only">(current)</span></a>
-=======
-        <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span></a>
->>>>>>> development
       </li>
   
       <li class="nav-item active">
         <a class="nav-link" href="#"> Catalogo de productos <%# current_user.completed_count %> </a>
       </li>
     
-<<<<<<< HEAD
-      <%
-=begin%>
- <ul class="nav navbar-nav navbar-right "> 
-<%
-=end%>
-        <%
-=begin%>
- <% if user_signed_in? %> 
-<%
-=end%>
-          <%
-=begin%>
- <li > <a href="#" data-method='delete'> Salir </a></li> 
-<%
-=end%>
-        <%
-=begin%>
- <% else %> 
-<%
-=end%>
-        <%
-=begin%>
- <li><a href="<%# new_user_session_path %>"> Login </a></li> 
-<%
-=end%>
-        <%
-=begin%>
- <li><a href="<%# new_user_registration_path %>"> Registro </a></li> 
-<%
-=end%>
-        <%
-=begin%>
- <% end %> 
-<%
-=end%>
-=======
       <ul class="nav navbar-nav navbar-right ">
         <%# if user_signed_in? %>
           <li > <a href="<%# destroy_user_session_path %>" data-method='delete'> Salir </a></li>
@@ -83,18 +37,13 @@
         <li><a href="<%# new_user_session_path %>"> Login </a></li>
         <li><a href="<%# new_user_registration_path %>"> Registro </a></li>
         <%# end %>
->>>>>>> development
       </ul>
     </ul>
   </div>
 </nav>
-<<<<<<< HEAD
-=======
-
->>>>>>> development
     <div class = 'container'> 
       <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <p class="alert"><%= alert %></p>/sign_out
 
       <%= yield %>
     <div>
