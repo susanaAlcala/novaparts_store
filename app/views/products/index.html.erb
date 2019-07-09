@@ -1,6 +1,8 @@
 <h1>Products#index</h1>
 <p>Find me in app/views/products/index.html.erb</p>
 
+<%= link_to  "Ver carro", orders_path %>
+
 <% @products.each_slice(3) do |products| %>
 <div class='row'>
     <% products.each do |product| %>

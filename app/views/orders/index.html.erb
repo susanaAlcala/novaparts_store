@@ -1,2 +1,23 @@
-<h1>Orders#index</h1>
+<h1>Orden</h1>
 <p>Find me in app/views/orders/index.html.erb</p>
+
+
+<table>
+    <% @orders.each do |order| %>
+    <tr> 
+        <th> <%= "Nombre" %> </th>
+        <th> <%= "Precio" %> </th>
+        <th> <%= "Cantidad" %> </th>
+        <th> <%= "Subtotal" %> </th>
+    </tr>
+    <tr>
+        <td> <%= order.product.name%> </td>
+        <td> <%= order.product.price %> </td>
+        <td> <%= order.quantity %> </td>
+        <td> <%= order.quantity * order.product.price %> </td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to  "Vaciar carro", clean_orders_path %>
+

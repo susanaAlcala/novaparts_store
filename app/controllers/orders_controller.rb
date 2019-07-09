@@ -1,4 +1,12 @@
 class OrdersController < ApplicationController
+  
+  def index
+    @orders = Order.all
+    #@product = Product.find(params[:product_id])
+    #@subt = @product.price * @product.quantity
+
+  end
+  
   def create
     p = Product.find(params[:product_id])
     o = Order.find_or_create_by(user: current_user, product: p, payed: false, price: p.price)
@@ -10,4 +18,11 @@ class OrdersController < ApplicationController
       redirect_to products_path, alert: "El producto NO ha sido agregado al carro"
     end
   end
+
+  def clean
+    @orders = Order.where(user: current_user, payed: false)
+    @orders.destroy_all
+    redirect_to orders_path , notice: 'El carro se ha vaciado.'
+  end
+
 end
