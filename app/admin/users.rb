@@ -16,7 +16,16 @@ index do
     column :id
     column :email
     column :created_at
-   end
-
+    column :member_since do |user|
+        time_ago_in_words(user.created_at)
+    end
+  actions
+end
+ 
+form do |f|
+    input :email
+    input :password
+    # actions
+end
 
 end
