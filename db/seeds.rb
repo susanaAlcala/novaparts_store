@@ -12,13 +12,13 @@ Product.destroy_all
 
 10.times do |i|
      Product.create({
-        sku: "nro de pieza #{i+1}",
-        name: "description #{i+1}",
-        brand: "marca #{i+1}",
-        version: "modelo #{i+1}",
-        year: "año #{i+1}",
+        sku: "Nro de pieza #{i+1}",
+        name: "Description #{i+1}",
+        brand: "Marca #{i+1}",
+        version: "Modelo #{i+1}",
+        year: "Año #{i+1}",
         photo: "https://picsum.photos/id/#{i+50}/100/100",
-        category: "modelo #{i+1}",
+        category: "Categoria #{i+1}",
         price: 1000
      }) 
  end
