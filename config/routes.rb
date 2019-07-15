@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   
-  resources :products, only: [:index,:show] do
+  resources :products do
     resources :orders, only: :create 
+    resources :comments, only: :create
   end
+
+  # resources :products do
+    # resources :comments, only: :create
+  # end
 
   resources :orders, only: :index do
     collection do

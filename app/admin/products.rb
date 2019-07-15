@@ -12,7 +12,7 @@ ActiveAdmin.register Product do
 #   permitted
 # end
 
-permit_params :sku, :name, :brand, :version, :year, :photo, :category, :price
+permit_params :sku, :name, :brand, :version, :year, :photo, :category, :price, :user_id
 
 index do
     column :id
@@ -49,6 +49,12 @@ filter :brand, as: :select
 filter :version, as: :select
 filter :year, as: :select
 filter :category, as: :select
+
+# sidebar "Product Details", only: [:show, :edit] do
+    # ul do
+        # li link_to "Comments", admin_product_comments_path(resource)
+    # end
+# end
 
 end
 
