@@ -52,9 +52,9 @@ filter :year, as: :select
 filter :category, as: :select
 
 sidebar "Product Details", only: [:show, :edit] do
-    ul do
-        li link_to "Reviews", admin_review_path(resource)
-    end
+    #ul do
+    #    li link_to "Reviews", admin_review_path(resource)
+    #end
 end
 
 end

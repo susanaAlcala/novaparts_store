@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
-  
+  before_action :authenticate_user!
+
   def index
-    @orders = Order.all
-    #@product = Product.find(params[:product_id])
-    #@subt = @product.price * @product.quantity
+    @orders = current_user.orders.cart
+    @total = @orders.get_total
 
   end
   

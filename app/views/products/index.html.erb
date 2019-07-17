@@ -2,25 +2,27 @@
 
 <%= link_to  "Ver carro", orders_path %>
 
-<% @products.each_slice(3) do |products| %>
-<div class='row'>
-    <% products.each do |product| %>
-    <div class='col-md-3' >
-        <div class='card col-md-12 product_card'> 
-        <%= image_tag product.photo, class: 'card-img-top' %>
-            <div class="card-body">
-            <h6 class="card-title"><%= product.sku %></h6>
-            <h3 class="card-title"><%= product.name %></h3>
-            <h5 class="card-title"><%= product.brand %></h5>
-            <h5 class="card-title"><%= product.version %></h5>
-            <h5 class="card-title"><%= product.category %></h5>
-            <h5 class="card-title"><%= product.price %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%# product.name %></h6>
-            <td> <%= button_to "Agregar al carro", product_orders_path(product), class:"btn btn-primary" %></td>
-            </div>
+<div class="container">
+  <div class="row">
+    <% @products.each_slice(3) do |row| %>
+      <% row.each do |product| %>
+        <div class='col-md-3' >
+          <div class='card col-md-12 product_card'> 
+            <%= image_tag product.photo, class: 'card-img-top' %>
+              <div class="card-body">
+                <h6 class="card-title"><%= product.sku %></h6>
+                <h3 class="card-title"><%= product.name %></h3>
+                <h5 class="card-title"><%= product.brand %></h5>
+                <h5 class="card-title"><%= product.version %></ h5>
+                <h5 class="card-title"><%= product.category %></   h5>
+                <h5 class="card-title"><%= product.price %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%#product.name %></h6>
+                <td> <%= button_to "Agregar al carro",product_orders_path(product), class:"btnbtn-primary" %></td>
+              </div>
+          </div>
         </div>
-    </div>
+      <% end %>
+    <div class="w-100" style="margin-top:20px;"> </div>
     <% end %>
-    </div>
-    <br>
-<% end %>
+  </div>
+</div>

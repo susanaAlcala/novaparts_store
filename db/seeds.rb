@@ -12,7 +12,7 @@ Comment.destroy_all
 #Order.destroy_all
 
 
-10.times do |i|
+8.times do |i|
      Product.create({
         sku: "Nro de pieza #{i+1}",
         name: "Description #{i+1}",
@@ -21,7 +21,7 @@ Comment.destroy_all
         year: "Año #{i+2000}",
         photo: "https://picsum.photos/id/#{i+50}/100/100",
         category: "Categoria #{i+1}",
-        price: 1000
+        price: 10
      }) 
  end
 
@@ -36,5 +36,6 @@ end
    })
   end
 #  
+# AdminUser.create!(email: 'admin@mail.com', password: '123123', password_confirmation: '123123') if Rails.env.development?
 # AdminUser.create!(email: 'admin@mail.com', password: '123123', password_confirmation: '123123') if Rails.env.development?
 
