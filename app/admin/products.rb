@@ -25,6 +25,7 @@ index do
     column :category
     column :price
     column :created_at
+    #column :comment
     actions
 end
 
@@ -50,11 +51,11 @@ filter :version, as: :select
 filter :year, as: :select
 filter :category, as: :select
 
-# sidebar "Product Details", only: [:show, :edit] do
-    # ul do
-        # li link_to "Comments", admin_product_comments_path(resource)
-    # end
-# end
+sidebar "Product Details", only: [:show, :edit] do
+    ul do
+        li link_to "Reviews", admin_review_path(resource)
+    end
+end
 
 end
 

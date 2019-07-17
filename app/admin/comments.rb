@@ -1,12 +1,13 @@
-ActiveAdmin.register Comment, as: "Review" do
+ActiveAdmin.register Comment, as: 'Review' do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 belongs_to :product
+#belongs_to :user
 
 # permit_params :list, :of, :attributes, :on, :model
 #
 # or
-permit_params :user_id, :content
+permit_params :user_id, :content, :product_id
 #
 # permit_params do
 #   permitted = [:permitted, :attributes]
@@ -16,12 +17,12 @@ permit_params :user_id, :content
 
 index do
     column :id
-    # column :author do |comment|
-    #   comment.user.email
-    # end
-    # column:comments do |comment|
-    #    comments.count
-    #end
+     column :author do |review|
+       review.user.email
+     end
+     column :reviews do |review|
+        review.count
+    end
     actions
 end
 
