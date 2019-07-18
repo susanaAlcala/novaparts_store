@@ -6,19 +6,11 @@ class BillingsController < ApplicationController
     def pre_pay
         orders = current_user.orders.where(payed: false)
         total = orders.pluck("price * quantity").sum()
-        items = orders.map do |order|
-            item = {}
-            item[:name] = order.product.name
-            item[:sku] = order.id.to_s
-            item[:price] = order.price.to_s
-            item[:currency] = 'USD'
-            item[:quantity] = order.quantity
-            item
-        end
+        items = get_items_hash(orders)
         
         if Rails.env.development?
             redirect_urls_ok = {
-                return_url: "http://localhost:3000/billings/execute",
+                return_url: execute_billings_url,
                 cancel_url: "http://localhost:3000/"  
             }
         else
@@ -63,6 +55,19 @@ class BillingsController < ApplicationController
             redirect_to root_path, notice: "La compra se realizó con éxito!"
         else
             render plain: "No se puedo generar el cobro en PayPal."
+        end
+    end
+
+    private
+    def get_items_hash(orders)
+        items = orders.map do |order|
+            item = {}
+            item[:name] = order.product.name
+            item[:sku] = order.id.to_s
+            item[:price] = order.price.to_s
+            item[:currency] = 'USD'
+            item[:quantity] = order.quantity
+            item
         end
     end
 end
